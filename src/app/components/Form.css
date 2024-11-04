@@ -1,4 +1,5 @@
 /* app/components/Form.css */
+
 .form {
     display: flex;
     flex-direction: column;
@@ -9,6 +10,12 @@
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
   
   .form-input, .form-textarea {
@@ -42,5 +49,10 @@
   
   .form-button:hover {
     background-color: #005bb5;
+  }
+  
+  .error-message {
+    color: #e53e3e;
+    font-size: 0.875rem;
   }
   

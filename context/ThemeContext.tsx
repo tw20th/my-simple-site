@@ -1,11 +1,11 @@
-import { createContext, useContext, useState, Dispatch, SetStateAction, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type ThemeContextType = {
   theme: string;
-  setTheme: Dispatch<SetStateAction<string>>;
-} | null;
+  toggleTheme: () => void;
+};
 
-const ThemeContext = createContext<ThemeContextType>(null);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 type ThemeProviderProps = {
   children: ReactNode;
@@ -13,9 +13,25 @@ type ThemeProviderProps = {
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+    setTheme(systemPreference.matches ? 'dark' : 'light');
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setTheme(e.matches ? 'dark' : 'light');
+    };
+    systemPreference.addEventListener('change', handleChange);
+    return () => systemPreference.removeEventListener('change', handleChange);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className={theme}>{children}</div>
     </ThemeContext.Provider>
   );
 }

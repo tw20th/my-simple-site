@@ -1,21 +1,63 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ダークモードとライトモードのカラー設定 */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* カスタムユーティリティクラス */
+.utility-container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.utility-card {
+  @apply bg-white rounded-md shadow-lg p-6;
+}
+
+.utility-button {
+  @apply bg-primary text-white py-2 px-4 rounded-lg hover:bg-secondary transition-colors duration-300;
+}
+
+.utility-heading {
+  @apply text-2xl font-bold text-primary mb-4;
+}
+
+.utility-text {
+  @apply text-base text-secondary leading-relaxed;
+}
+
+/* エラーページ用のスタイル */
+.error-page {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: var(--foreground);
+}
+
+.error-page h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e53e3e; /* 赤系のエラーカラー */
+  margin-bottom: 20px;
+}
+
+.error-page p {
+  margin-bottom: 10px;
+  color: var(--foreground);
 }
