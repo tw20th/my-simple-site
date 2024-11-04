@@ -1,0 +1,46 @@
+/* app/components/Form.css */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-input, .form-textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .form-input:focus, .form-textarea:focus {
+    border-color: #0070f3;
+    outline: none;
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .form-button {
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0070f3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #005bb5;
+  }
+  

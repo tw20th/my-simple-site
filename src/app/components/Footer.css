@@ -1,8 +1,14 @@
 /* app/components/Footer.css */
 .footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #333;
-    color: #fff;
-  }
-  
+  text-align: center;
+  padding: 20px 30px;
+  background-color: #0070f3;
+  color: #ffffff;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  margin: 0;
+}
