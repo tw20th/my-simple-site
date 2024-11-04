@@ -1,3 +1,6 @@
+// src/context/ThemeContext.tsx
+"use client";
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type ThemeContextType = {
@@ -12,22 +15,41 @@ type ThemeProviderProps = {
 };
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState<string | null>(null); // 初期は`null`に
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
-    setTheme(systemPreference.matches ? 'dark' : 'light');
+    setIsClient(true); // クライアントが完全にロードされていることを確認
 
-    const handleChange = (e: MediaQueryListEvent) => {
-      setTheme(e.matches ? 'dark' : 'light');
-    };
-    systemPreference.addEventListener('change', handleChange);
-    return () => systemPreference.removeEventListener('change', handleChange);
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        setTheme(storedTheme);
+      } else {
+        const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+        setTheme(systemPreference.matches ? 'dark' : 'light');
+
+        const handleChange = (e: MediaQueryListEvent) => {
+          setTheme(e.matches ? 'dark' : 'light');
+        };
+        systemPreference.addEventListener('change', handleChange);
+        return () => systemPreference.removeEventListener('change', handleChange);
+      }
+    }
   }, []);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    if (theme) {
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      if (isClient) localStorage.setItem('theme', newTheme);
+    }
   };
+
+  if (theme === null) {
+    // クライアントでテーマが決定するまで、レンダリングせずnullを返す
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
