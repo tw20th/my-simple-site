@@ -1,9 +1,17 @@
-// context/ThemeContext.tsx
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, Dispatch, SetStateAction, ReactNode } from 'react';
 
-const ThemeContext = createContext(null);
+type ThemeContextType = {
+  theme: string;
+  setTheme: Dispatch<SetStateAction<string>>;
+} | null;
 
-export function ThemeProvider({ children }) {
+const ThemeContext = createContext<ThemeContextType>(null);
+
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState('light');
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -13,5 +21,9 @@ export function ThemeProvider({ children }) {
 }
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
 }
