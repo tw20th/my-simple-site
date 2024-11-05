@@ -1,14 +1,10 @@
 // src/app/layout.tsx
-import type { Metadata } from "next";
+"use client";
+
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ThemeProvider } from "../../context/ThemeContext"; // パスを修正
-
-export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "Welcome to my Next.js app",
-};
+import { ThemeProvider } from "../../context/ThemeContext";
 
 export default function RootLayout({
   children,

@@ -6,18 +6,20 @@
 /* ダークモードとライトモードのカラー設定 */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3a3a3a;
+  --primary: #5a4636; /* 茶系のクラシックなアクセント */
+  --secondary: #888888; /* グレー系の落ち着いたカラー */
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #1a1a1a;
+  --foreground: #dedede;
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Georgia', serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -27,7 +29,7 @@ body {
 }
 
 .utility-card {
-  @apply bg-white rounded-md shadow-lg p-6;
+  @apply bg-white dark:bg-gray-800 rounded-md shadow-lg p-6;
 }
 
 .utility-button {
@@ -53,7 +55,7 @@ body {
 .error-page h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #e53e3e; /* 赤系のエラーカラー */
+  color: #d9534f; /* 赤系のエラーカラー */
   margin-bottom: 20px;
 }
 
