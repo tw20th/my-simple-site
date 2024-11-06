@@ -1,10 +1,14 @@
 // src/app/layout.tsx
-"use client";
-
+import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ThemeProvider } from "../../context/ThemeContext";
+import { ThemeProvider } from "@/context/ThemeContext"; // ルートエイリアスでインポート
+
+export const metadata: Metadata = {
+  title: "TomokiのBlog",
+  description: "Tomokiのブログへようこそ。自然の美しさや日々の気づきをお楽しみください。",
+};
 
 export default function RootLayout({
   children,
@@ -14,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <ThemeProvider>
+        <ThemeProvider> {/* ThemeProviderでアプリ全体をラップ */}
           <Header />
           <main>{children}</main>
           <Footer />

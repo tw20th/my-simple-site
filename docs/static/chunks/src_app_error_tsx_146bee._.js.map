@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/tw20th/web_development/my-simple-site/src/app/error.tsx"],"sourcesContent":["// app/error.tsx\n\"use client\";\n\nexport default function Error() {\n    return <h1>Something went wrong!</h1>;\n}\n"],"names":[],"mappings":"AAAA,gBAAgB;;;;;AAChB;;AAEe,SAAS;IACpB,qBAAO,6LAAC;kBAAG;;;;;;AACf;KAFwB"}},
+    {"offset": {"line": 29, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
