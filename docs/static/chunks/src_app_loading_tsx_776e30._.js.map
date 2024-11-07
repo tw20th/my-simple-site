@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/tw20th/web_development/my-simple-site/src/app/loading.tsx"],"sourcesContent":["// app/loading.tsx\n\"use client\";\n\nexport default function Loading() {\n  return (\n    <div style={{ textAlign: \"center\", padding: \"20px\" }}>\n      <p>Loading...</p>\n      <p>Please wait while we fetch your data.</p>\n    </div>\n  );\n}\n"],"names":[],"mappings":"AAAA,kBAAkB;;;;;AAClB;;AAEe,SAAS;IACtB,qBACE,6LAAC;QAAI,OAAO;YAAE,WAAW;YAAU,SAAS;QAAO;;0BACjD,6LAAC;0BAAE;;;;;;0BACH,6LAAC;0BAAE;;;;;;;;;;;;AAGT;KAPwB"}},
-    {"offset": {"line": 48, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
