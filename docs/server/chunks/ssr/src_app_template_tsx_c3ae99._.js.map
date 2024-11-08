@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/app/template.tsx"],"sourcesContent":["import { ReactNode } from 'react';\n\ntype TemplateProps = {\n  children: ReactNode;\n};\n\nexport default function Template({ children }: TemplateProps) {\n  return (\n    <div className=\"template-layout\">\n      {children}\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;AAMe,SAAS,SAAS,EAAE,QAAQ,EAAiB;IAC1D,qBACE,8OAAC;QAAI,WAAU;kBACZ;;;;;;AAGP"}},
+    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
